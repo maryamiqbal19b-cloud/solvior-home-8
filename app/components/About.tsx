@@ -10,7 +10,7 @@ export function About() {
   ];
 
   return (
-    <section className="py-24 px-6 md:px-10 bg-[#F1F5FB]">
+  <section id="about" className="py-24 px-6 md:px-10 bg-[#F1F5FB]">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-14 items-center">
         {/* Text on the LEFT */}
         <Reveal className="lg:col-span-7">

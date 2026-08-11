@@ -85,11 +85,11 @@ export function Navbar() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
           ) : (
-            <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
-              <rect x="3" y="3" width="7" height="7" rx="1" fill="currentColor" />
-              <rect x="14" y="3" width="7" height="7" rx="1" fill="currentColor" />
-              <rect x="3" y="14" width="7" height="7" rx="1" fill="currentColor" />
-              <rect x="14" y="14" width="7" height="7" rx="1" fill="currentColor" />
+          <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
+              <circle cx="6" cy="6" r="2.5" fill="currentColor" />
+              <circle cx="18" cy="6" r="2.5" fill="currentColor" />
+              <circle cx="6" cy="18" r="2.5" fill="currentColor" />
+              <circle cx="18" cy="18" r="2.5" fill="currentColor" />
             </svg>
           )}
         </button>

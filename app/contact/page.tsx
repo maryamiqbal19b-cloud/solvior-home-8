@@ -66,16 +66,20 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero banner with breadcrumb */}
-      <section className="relative bg-[#0B1B33] text-white px-6 md:px-10 py-28 text-center overflow-hidden">
-        <Image
-          src="/pheader-bg.webp"
-          alt="Solvior team in a business meeting"
-          fill
-          priority
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-[#0B1B33]/75" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0B1B33]" />
+   <section className="relative bg-[#0B1B33] text-white px-6 md:px-10 py-28 text-center">
+        {/* Image bleeds up behind the transparent navbar (~80px) so the photo
+            is visible through it instead of stopping at the section edge. */}
+        <div className="absolute -top-20 inset-x-0 h-[calc(100%+5rem)]">
+          <Image
+            src="/pheader-bg.webp"
+            alt="Solvior team in a business meeting"
+            fill
+            priority
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-[#0B1B33]/75" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0B1B33]" />
+        </div>
         <div className="relative">
           <h1 className="font-display text-4xl md:text-5xl font-bold mb-5">Contact</h1>
           <div className="inline-flex items-center gap-2 bg-white/10 rounded-full px-5 py-2 text-sm">

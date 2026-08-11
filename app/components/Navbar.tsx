@@ -3,11 +3,12 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { NAV_LINKS } from "./data";
+import { NAV_LINKS, MOBILE_NAV } from "./data";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [expanded, setExpanded] = useState<string | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -142,18 +143,65 @@ export function Navbar() {
 
           {/* Nav links */}
           <nav className="flex flex-col mb-8">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className={`py-3.5 text-lg font-semibold border-b border-white/10 transition-colors ${
-                  isActive(link.href) ? "text-white" : "text-white/70 hover:text-white"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {MOBILE_NAV.map((item) => {
+              if (!item.children) {
+                return (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className={`py-3.5 text-lg font-semibold border-b border-white/10 transition-colors ${
+                      isActive(item.href) ? "text-white" : "text-white/70 hover:text-white"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              }
+
+              const isOpen = expanded === item.label;
+              return (
+                <div key={item.label} className="border-b border-white/10">
+                  <button
+                    type="button"
+                    onClick={() => setExpanded(isOpen ? null : item.label)}
+                    aria-expanded={isOpen}
+                    className="w-full flex items-center justify-between py-3.5 text-lg font-semibold text-white/70 hover:text-white transition-colors"
+                  >
+                    {item.label}
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                      className={`w-4 h-4 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" />
+                    </svg>
+                  </button>
+                  <div
+                    className={`overflow-hidden transition-[max-height] duration-300 ease-in-out ${
+                      isOpen ? "max-h-96" : "max-h-0"
+                    }`}
+                  >
+                    <div className="flex flex-col pb-2">
+                      {item.children.map((child) => (
+                        <Link
+                          key={child.label}
+                          href={child.href}
+                          onClick={() => setOpen(false)}
+                          className={`py-2.5 pl-4 text-base transition-colors ${
+                            isActive(child.href) ? "text-white" : "text-white/60 hover:text-white"
+                          }`}
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </nav>
 
           {/* Contact info */}

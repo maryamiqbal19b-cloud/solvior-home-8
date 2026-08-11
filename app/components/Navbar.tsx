@@ -31,10 +31,18 @@ export function Navbar() {
     return pathname === href || pathname?.startsWith(href + "/");
   };
 
+ // Pages with a dark hero banner directly beneath the navbar look best
+  // with a transparent navbar that blends into the banner until scrolled.
+  const transparentOnLoad = pathname === "/contact";
+
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-[#0B1B33]/95 backdrop-blur shadow-sm" : "bg-[#0B1B33]"
+        scrolled
+          ? "bg-[#0B1B33]/95 backdrop-blur shadow-sm"
+          : transparentOnLoad
+          ? "bg-transparent"
+          : "bg-[#0B1B33]"
       }`}
     >
       <nav className="flex items-center justify-between px-6 md:px-10 py-4 max-w-7xl mx-auto">
@@ -86,13 +94,13 @@ export function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile full-screen menu overlay */}
+     {/* Full-screen menu overlay (all breakpoints, per target design) */}
       <div
-        className={`md:hidden fixed inset-0 z-[60] bg-[#0B1B33] transition-opacity duration-300 ${
+        className={`fixed inset-0 z-[60] bg-[#0B1B33] transition-opacity duration-300 ${
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
-        <div className="h-full overflow-y-auto px-6 py-6">
+      <div className="h-full overflow-y-auto px-6 py-6 md:max-w-xl md:mx-auto">
           {/* Header row: logo + close */}
           <div className="flex items-center justify-between mb-6">
             <Link href="/" onClick={() => setOpen(false)} className="flex items-center gap-2">

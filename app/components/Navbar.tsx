@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { NAV_LINKS, MOBILE_NAV } from "./data";
+import { MOBILE_NAV } from "./data";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -49,50 +49,41 @@ export function Navbar() {
           </span>
         </Link>
 
-        {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-8">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className={`text-sm font-medium transition-colors ${
-                isActive(link.href)
-                  ? "text-white"
-                  : "text-white/70 hover:text-white"
-              }`}
-            >
-              {link.label}
-            </Link>
-          ))}
+        {/* Right side: quote button + menu toggle (all breakpoints, per target design) */}
+        <div className="flex items-center gap-4 md:gap-6">
           <Link
             href="/contact"
-            className="bg-[#2563EB] hover:bg-[#1E40AF] text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors"
+            className="hidden sm:inline-flex items-center gap-2 bg-white hover:bg-white/90 text-[#0B1B33] text-sm font-semibold pl-5 pr-2 py-2 rounded-full transition-colors"
           >
-            Free consultation
+            Get a quote
+            <span className="w-7 h-7 rounded-full bg-[#2563EB] flex items-center justify-center">
+              <svg viewBox="0 0 24 24" fill="none" className="w-3.5 h-3.5 text-white" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </span>
           </Link>
-        </div>
 
-        {/* Mobile menu toggle */}
-        <button
-          onClick={() => setOpen((v) => !v)}
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          className="flex md:hidden items-center gap-2 text-white font-medium text-sm hover:opacity-80 transition-opacity"
-        >
-          {open ? "Close" : "Menu"}
-          {open ? (
-            <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          ) : (
-          <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
-              <circle cx="6" cy="6" r="2.5" fill="currentColor" />
-              <circle cx="18" cy="6" r="2.5" fill="currentColor" />
-              <circle cx="6" cy="18" r="2.5" fill="currentColor" />
-              <circle cx="18" cy="18" r="2.5" fill="currentColor" />
-            </svg>
-          )}
-        </button>
+          <button
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            className="flex items-center gap-2 text-white font-semibold text-sm hover:opacity-80 transition-opacity"
+          >
+            {open ? "Close" : "Menu"}
+            {open ? (
+              <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
+                <rect x="3" y="3" width="7" height="7" rx="1.5" fill="currentColor" />
+                <rect x="14" y="3" width="7" height="7" rx="1.5" fill="currentColor" />
+                <rect x="3" y="14" width="7" height="7" rx="1.5" fill="currentColor" />
+                <rect x="14" y="14" width="7" height="7" rx="1.5" fill="currentColor" />
+              </svg>
+            )}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile full-screen menu overlay */}

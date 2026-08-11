@@ -66,12 +66,13 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero banner with breadcrumb */}
-      <section className="relative bg-[#0B1B33] text-white px-6 md:px-10 py-24 text-center overflow-hidden">
+      <section className="relative bg-[#0B1B33] text-white px-6 md:px-10 py-28 text-center overflow-hidden">
         <div
-          className="absolute inset-0 opacity-25 bg-cover bg-center"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1600&q=60')" }}
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1600&q=80')" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0B1B33]/60 to-[#0B1B33]" />
+        <div className="absolute inset-0 bg-[#0B1B33]/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0B1B33]/40 via-transparent to-[#0B1B33]" />
         <div className="relative">
           <h1 className="font-display text-4xl md:text-5xl font-bold mb-5">Contact</h1>
           <div className="inline-flex items-center gap-2 bg-white/10 rounded-full px-5 py-2 text-sm">

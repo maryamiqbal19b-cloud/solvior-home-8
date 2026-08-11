@@ -94,32 +94,105 @@ export function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile dropdown panel */}
+      {/* Mobile full-screen menu overlay */}
       <div
-        className={`md:hidden overflow-hidden transition-[max-height] duration-300 ease-in-out ${
-          open ? "max-h-96" : "max-h-0"
+        className={`md:hidden fixed inset-0 z-[60] bg-[#0B1B33] transition-opacity duration-300 ${
+          open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
-        <div className="flex flex-col gap-1 px-6 pb-6 pt-2 border-t border-white/10">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              onClick={() => setOpen(false)}
-              className={`py-3 text-base font-medium border-b border-white/10 last:border-b-0 transition-colors ${
-                isActive(link.href) ? "text-white" : "text-white/70"
-              }`}
-            >
-              {link.label}
+        <div className="h-full overflow-y-auto px-6 py-6">
+          {/* Header row: logo + close */}
+          <div className="flex items-center justify-between mb-6">
+            <Link href="/" onClick={() => setOpen(false)} className="flex items-center gap-2">
+              <span className="w-9 h-9 rounded-full bg-[#2563EB] flex items-center justify-center">
+                <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4 text-white">
+                  <path d="M12 2 L18 8 L12 14 L6 8 Z" fill="white" />
+                </svg>
+              </span>
+              <span className="text-white text-2xl font-bold tracking-tight">
+                Sol<span className="italic font-normal">vior</span>
+              </span>
             </Link>
-          ))}
-          <Link
-            href="/contact"
-            onClick={() => setOpen(false)}
-            className="mt-4 bg-[#2563EB] hover:bg-[#1E40AF] text-white text-sm font-semibold px-5 py-3 rounded-full text-center transition-colors"
+            <button
+              onClick={() => setOpen(false)}
+              aria-label="Close menu"
+              className="text-white/70 hover:text-white transition-colors"
+            >
+              <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Search bar (visual) */}
+          <form
+            onSubmit={(e) => e.preventDefault()}
+            className="flex items-center bg-[#16294A] rounded-full px-5 py-3 mb-6"
           >
-            Free consultation
-          </Link>
+            <input
+              type="text"
+              placeholder="Search here"
+              className="bg-transparent outline-none flex-1 text-white placeholder-white/40 text-sm"
+            />
+            <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5 text-white/50" stroke="currentColor" strokeWidth={2}>
+              <circle cx="11" cy="11" r="7" />
+              <path strokeLinecap="round" d="M21 21l-4.35-4.35" />
+            </svg>
+          </form>
+
+          {/* Nav links */}
+          <nav className="flex flex-col mb-8">
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className={`py-3.5 text-lg font-semibold border-b border-white/10 transition-colors ${
+                  isActive(link.href) ? "text-white" : "text-white/70 hover:text-white"
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+
+          {/* Contact info */}
+          <div className="mb-8">
+            <h3 className="text-white font-display text-xl font-bold mb-4">Contact info</h3>
+            <div className="flex flex-col divide-y divide-white/10 border-t border-white/10">
+              <div className="py-3">
+                <p className="text-white/40 text-xs mb-1">Email</p>
+                <a href="mailto:support@solvior.com" className="text-white font-semibold text-sm hover:text-[#60A5FA] transition-colors">
+                  support@solvior.com
+                </a>
+              </div>
+              <div className="py-3">
+                <p className="text-white/40 text-xs mb-1">Phone</p>
+                <a href="tel:+10095447818" className="text-white font-semibold text-sm hover:text-[#60A5FA] transition-colors">
+                  +1 (009) 544-7818
+                </a>
+              </div>
+              <div className="py-3">
+                <p className="text-white/40 text-xs mb-1">Location</p>
+                <p className="text-white font-semibold text-sm">West Rond, MT, USA</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Follow us */}
+          <div>
+            <h4 className="text-white font-bold mb-3">Follow Us:</h4>
+            <div className="flex gap-3">
+              {["f", "ig", "tw", "in"].map((s) => (
+                <span
+                  key={s}
+                  className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#2563EB] flex items-center justify-center text-white text-xs font-bold transition-colors cursor-pointer"
+                >
+                  {s}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </header>

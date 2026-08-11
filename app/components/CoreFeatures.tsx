@@ -1,4 +1,4 @@
-
+import Link from "next/link";
 import { Reveal } from "./Reveal";
 
 const FEATURES = [
@@ -65,14 +65,27 @@ export function CoreFeatures() {
         <p className="text-gray-500 mb-8 max-w-lg">
           Our mission is to empower businesses to thrive in solutions.
         </p>
-        <button className="flex items-center gap-3 bg-[#0B1B33] text-white pl-2 pr-6 py-2 rounded-full font-semibold mb-14 hover:bg-[#1E3A8A] transition-colors group">
-          <span className="w-9 h-9 rounded-full bg-[#2563EB] flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
-            <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+        <Link
+          href="/features"
+          className="relative inline-flex items-center gap-3 bg-[#0B1B33] text-white pl-2 pr-6 py-2 rounded-full font-semibold mb-14 hover:bg-[#1E3A8A] transition-colors group overflow-hidden"
+        >
+          <span className="relative w-9 h-9 rounded-full bg-[#2563EB] flex items-center justify-center">
+            <span className="absolute inset-0 rounded-full bg-[#2563EB] animate-ping opacity-75 group-hover:opacity-100" />
+            <svg
+              className="relative w-4 h-4 text-white transition-transform duration-300 group-hover:translate-x-1 group-hover:-rotate-45"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+            >
               <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </span>
-          Explore more
-        </button>
+          <span className="relative">
+            Explore more
+            <span className="absolute left-0 -bottom-0.5 h-px w-0 bg-white transition-all duration-300 group-hover:w-full" />
+          </span>
+        </Link>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {FEATURES.map((f, i) => (

@@ -74,9 +74,8 @@ export default function ContactPage() {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-[#0B1B33]/70" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0B1B33]/40 via-transparent to-[#0B1B33]" />
-        <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[#0B1B33] to-transparent" />
+        <div className="absolute inset-0 bg-[#0B1B33]/75" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0B1B33]" />
         <div className="relative">
           <h1 className="font-display text-4xl md:text-5xl font-bold mb-5">Contact</h1>
           <div className="inline-flex items-center gap-2 bg-white/10 rounded-full px-5 py-2 text-sm">

@@ -1,9 +1,26 @@
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Services", href: "/#services" },
+  { label: "Services", href: "/services" },
   { label: "Pricing", href: "/pricing" },
   { label: "Team", href: "/#team" },
+  { label: "Contact", href: "/contact" },
+];
+
+// Mobile menu uses a grouped structure: some items are direct links,
+// "Pages" is expandable (arrow toggles a sub-list) like the demo.
+export const MOBILE_NAV = [
+  { label: "Home", href: "/" },
+  {
+    label: "Pages",
+    children: [
+      { label: "About Us", href: "/about" },
+      { label: "Pricing Plan", href: "/pricing" },
+      { label: "Team", href: "/#team" },
+      { label: "Contact", href: "/contact" },
+    ],
+  },
+  { label: "Services", href: "/services" },
   { label: "Contact", href: "/contact" },
 ];
 

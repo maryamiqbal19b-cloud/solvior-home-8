@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ServicesList } from "./ServicesList";
+import { ServicesGrid } from "./ServicesGrid";
 
 export const metadata: Metadata = {
   title: "Services — Solvior",
@@ -35,20 +35,10 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Intro + interactive list */}
+      {/* Services grid */}
       <section className="px-6 md:px-10 py-20 bg-white">
         <div className="max-w-6xl mx-auto">
-          <div className="mb-14">
-            <p className="flex items-center gap-2 text-[#2563EB] text-xs md:text-sm font-bold tracking-[0.2em] uppercase mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB]" />
-              What we do
-            </p>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-[#0B1B33] max-w-2xl">
-              Services built for business growth
-            </h2>
-          </div>
-
-          <ServicesList />
+          <ServicesGrid />
         </div>
       </section>
 

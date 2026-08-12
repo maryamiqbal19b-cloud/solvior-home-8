@@ -7,13 +7,23 @@ import { MOBILE_NAV } from "./data";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
   const [expanded, setExpanded] = useState<string | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
-    window.addEventListener("scroll", onScroll);
+    let lastY = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 12);
+      // Ignore tiny jitters and the very top of the page
+      if (Math.abs(y - lastY) > 4) {
+        setHidden(y > lastY && y > 80);
+        lastY = y;
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -37,12 +47,12 @@ export function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 px-3 md:px-6 pt-3 transition-all duration-300 ${
-        scrolled ? "pt-2" : ""
+      className={`sticky top-0 z-50 transition-transform duration-300 ${
+        hidden && !open ? "-translate-y-full" : "translate-y-0"
       }`}
     >
       <div
-        className={`rounded-full transition-all duration-300 ${
+        className={`transition-all duration-300 ${
           scrolled
             ? "bg-[#0B1B33]/95 backdrop-blur shadow-lg"
             : transparentOnLoad
@@ -62,20 +72,8 @@ export function Navbar() {
           </span>
         </Link>
 
-        {/* Right side: quote button + menu toggle (all breakpoints, per target design) */}
+        {/* Right side: menu toggle */}
         <div className="flex items-center gap-4 md:gap-6">
-          <Link
-            href="/contact"
-            className="hidden sm:inline-flex items-center gap-2 bg-white hover:bg-white/90 text-[#0B1B33] text-sm font-semibold pl-5 pr-2 py-2 rounded-full transition-colors"
-          >
-            Get a quote
-            <span className="w-7 h-7 rounded-full bg-[#2563EB] flex items-center justify-center">
-              <svg viewBox="0 0 24 24" fill="none" className="w-3.5 h-3.5 text-white" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </span>
-          </Link>
-
           <button
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Close menu" : "Open menu"}

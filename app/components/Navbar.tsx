@@ -46,59 +46,64 @@ export function Navbar() {
   const transparentOnLoad = pathname === "/contact";
 
   return (
-    <header
-      className={`sticky top-0 z-50 transition-transform duration-300 ${
-        hidden && !open ? "-translate-y-full" : "translate-y-0"
-      }`}
-    >
-      <div
-        className={`transition-all duration-300 ${
-          scrolled
-            ? "bg-[#0B1B33]/95 backdrop-blur shadow-lg"
-            : transparentOnLoad
-            ? "bg-transparent"
-            : "bg-[#0B1B33]"
+    <>
+      <header
+        className={`sticky top-0 z-50 transition-transform duration-300 ${
+          hidden && !open ? "-translate-y-full" : "translate-y-0"
         }`}
       >
-      <nav className="flex items-center justify-between px-6 md:px-10 py-4 max-w-7xl mx-auto">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="w-9 h-9 rounded-full bg-[#2563EB] flex items-center justify-center">
-            <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4 text-white">
-              <path d="M12 2 L18 8 L12 14 L6 8 Z" fill="white" />
-            </svg>
-          </span>
-          <span className="text-white text-2xl font-bold tracking-tight">
-            Sol<span className="italic font-normal">vior</span>
-          </span>
-        </Link>
+        <div
+          className={`transition-all duration-300 ${
+            scrolled
+              ? "bg-[#0B1B33]/95 backdrop-blur shadow-lg"
+              : transparentOnLoad
+              ? "bg-transparent"
+              : "bg-[#0B1B33]"
+          }`}
+        >
+        <nav className="flex items-center justify-between px-6 md:px-10 py-4 max-w-7xl mx-auto">
+          <Link href="/" className="flex items-center gap-2">
+            <span className="w-9 h-9 rounded-full bg-[#2563EB] flex items-center justify-center">
+              <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4 text-white">
+                <path d="M12 2 L18 8 L12 14 L6 8 Z" fill="white" />
+              </svg>
+            </span>
+            <span className="text-white text-2xl font-bold tracking-tight">
+              Sol<span className="italic font-normal">vior</span>
+            </span>
+          </Link>
 
-        {/* Right side: menu toggle */}
-        <div className="flex items-center gap-4 md:gap-6">
-          <button
-            onClick={() => setOpen((v) => !v)}
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
-            className="flex items-center gap-2 text-white font-semibold text-sm hover:opacity-80 transition-opacity"
-          >
-            {open ? "Close" : "Menu"}
-            {open ? (
-              <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            ) : (
-              <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
-                <rect x="3" y="3" width="7" height="7" rx="1.5" fill="currentColor" />
-                <rect x="14" y="3" width="7" height="7" rx="1.5" fill="currentColor" />
-                <rect x="3" y="14" width="7" height="7" rx="1.5" fill="currentColor" />
-                <rect x="14" y="14" width="7" height="7" rx="1.5" fill="currentColor" />
-              </svg>
-            )}
-          </button>
+          {/* Right side: menu toggle */}
+          <div className="flex items-center gap-4 md:gap-6">
+            <button
+              onClick={() => setOpen((v) => !v)}
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
+              className="flex items-center gap-2 text-white font-semibold text-sm hover:opacity-80 transition-opacity"
+            >
+              {open ? "Close" : "Menu"}
+              {open ? (
+                <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
+                  <rect x="3" y="3" width="7" height="7" rx="1.5" fill="currentColor" />
+                  <rect x="14" y="3" width="7" height="7" rx="1.5" fill="currentColor" />
+                  <rect x="3" y="14" width="7" height="7" rx="1.5" fill="currentColor" />
+                  <rect x="14" y="14" width="7" height="7" rx="1.5" fill="currentColor" />
+                </svg>
+              )}
+            </button>
+          </div>
+        </nav>
         </div>
-      </nav>
-      </div>
+      </header>
 
-      {/* Full-screen menu overlay (all breakpoints, per target design) */}
+      {/* Full-screen menu overlay — rendered as a sibling of <header>, not a
+          descendant, because header now has a CSS transform (for the
+          scroll-hide effect) which would otherwise create a new containing
+          block and break this overlay's `fixed` positioning. */}
       <div
         className={`fixed inset-0 z-[60] bg-[#0B1B33] transition-opacity duration-300 ${
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
@@ -246,6 +251,6 @@ export function Navbar() {
           </div>
         </div>
       </div>
-    </header>
+    </>
   );
 }

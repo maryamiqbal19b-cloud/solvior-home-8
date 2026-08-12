@@ -115,6 +115,14 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
                 ))}
               </ul>
             </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
+              <div className="relative h-[220px] md:h-[260px] rounded-2xl overflow-hidden">
+                <img src="/tj-service-3.webp" alt="" className="w-full h-full object-cover" />
+              </div>
+              <div className="relative h-[220px] md:h-[260px] rounded-2xl overflow-hidden">
+                <img src="/tj-service-4.webp" alt="" className="w-full h-full object-cover" />
+              </div>
+            </div>
           </ServiceDetailReveal>
 
           {/* Key features */}
@@ -136,6 +144,27 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
                   <p className="text-[#0B1B33]/50 text-sm leading-relaxed">{f.copy}</p>
                 </div>
               ))}
+            </div>
+          </ServiceDetailReveal>
+
+          {/* Video / CTA banner */}
+          <ServiceDetailReveal delay={320}>
+            <div className="relative h-[280px] md:h-[380px] rounded-2xl overflow-hidden mt-16">
+              <img src="/tj-service-2.webp" alt="" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-[#0B1B33]/40" />
+              <a
+                href="https://www.youtube.com/watch?v=eEzD-Y97ges"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute inset-0 flex items-center justify-center group"
+                aria-label="Play video"
+              >
+                <span className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
+                  <svg viewBox="0 0 24 24" fill="#2563EB" className="w-6 h-6 md:w-7 md:h-7 ml-1">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </span>
+              </a>
             </div>
           </ServiceDetailReveal>
 

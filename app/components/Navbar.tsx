@@ -104,7 +104,7 @@ export function Navbar() {
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
-        <div className="h-full overflow-y-auto px-6 py-6 md:max-w-xl md:mx-auto">
+        <div className="h-full overflow-y-auto px-6 py-6 md:max-w-xl md:mx-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
           {/* Header row: logo + close */}
           <div className="flex items-center justify-between mb-6">
             <Link href="/" onClick={() => setOpen(false)} className="flex items-center gap-2">

@@ -1,6 +1,6 @@
 export function TopBar() {
   return (
-    <div className="w-full bg-[#2563EB] text-white text-sm px-6 md:px-10 py-2.5 overflow-x-auto">
+    <div className="w-full bg-[#2563EB] text-white text-sm px-6 md:px-10 py-2.5 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
       <div className="flex flex-nowrap items-center justify-between gap-6 whitespace-nowrap min-w-max mx-auto">
         <div className="flex items-center gap-2 shrink-0">
           <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4 shrink-0" stroke="currentColor" strokeWidth={2}>

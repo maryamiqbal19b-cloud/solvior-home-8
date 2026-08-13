@@ -27,21 +27,6 @@ export function Footer() {
 
   return (
     <footer>
-      {/* Top CTA banner */}
-      <div className="bg-gradient-to-r from-[#1E3A8A] to-[#2563EB] px-6 md:px-10 py-6 flex items-center gap-4">
-        <span className="w-10 h-10 rounded-full bg-[#0B1B33] flex items-center justify-center shrink-0">
-          <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none">
-            <path d="M12 2 L18 8 L12 14 L6 8 Z" fill="white" />
-          </svg>
-        </span>
-        <p className="text-white font-bold text-lg md:text-2xl">
-          NEED MORE HELP?{" "}
-          <a href="#contact" className="underline underline-offset-4">
-            CONTACT US
-          </a>
-        </p>
-      </div>
-
       {/* Main footer */}
       <div className="relative bg-[#0B1B33] text-white px-6 md:px-10 py-16">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">

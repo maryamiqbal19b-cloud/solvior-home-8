@@ -43,23 +43,20 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA */}
-      <section className="px-6 md:px-10 pb-20">
-        <div className="max-w-6xl mx-auto relative overflow-hidden rounded-3xl bg-[#0B1B33] text-white px-8 md:px-16 py-16 text-center">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#2563EB]/20 via-transparent to-transparent" />
-          <div className="relative">
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">Get consultant now!</h2>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-3 bg-white text-[#0B1B33] pl-6 pr-2 py-2 rounded-full font-semibold hover:bg-white/90 transition-colors"
-            >
-              Let&rsquo;s talk now
-              <span className="w-9 h-9 rounded-full bg-[#2563EB] flex items-center justify-center">
-                <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </span>
-            </Link>
-          </div>
+      <section className="bg-[#2563EB] text-white px-6 md:px-10 py-14">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center md:justify-between gap-8 text-center md:text-left">
+          <h2 className="font-display text-3xl md:text-4xl font-bold">Get consultant now!</h2>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-3 bg-white text-[#0B1B33] pl-6 pr-2 py-2 rounded-full font-semibold hover:bg-white/90 transition-colors shrink-0"
+          >
+            Let&rsquo;s talk now
+            <span className="w-9 h-9 rounded-full bg-[#0B1B33] flex items-center justify-center">
+              <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </span>
+          </Link>
         </div>
       </section>
     </>

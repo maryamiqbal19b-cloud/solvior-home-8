@@ -48,7 +48,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
               Services
             </Link>
             <span>/</span>
-            <span className="text-white/70">{service.n}</span>
+            <span className="text-white/70">{service.title}</span>
           </div>
         </div>
       </section>
@@ -57,23 +57,27 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
       <section className="px-6 md:px-10 py-20 bg-white">
         <div className="max-w-5xl mx-auto">
           <ServiceDetailReveal>
-            <div className="relative h-[320px] md:h-[420px] rounded-2xl overflow-hidden mb-12">
-              <img src={service.image} alt={service.title} className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0B1B33]/70 via-transparent to-transparent" />
-              <span className="absolute bottom-6 left-6 font-display text-5xl font-bold text-white/40">
-                {service.n}
-              </span>
+            <div className="relative h-[320px] md:h-[420px] overflow-hidden mb-12">
+              <img src="/tj-service-2.webp" alt={service.title} className="w-full h-full object-cover" />
             </div>
           </ServiceDetailReveal>
 
           <ServiceDetailReveal delay={100}>
-            <span className="inline-flex w-16 h-16 rounded-full bg-[#EEF2FA] items-center justify-center mb-6 text-[#2563EB]">
-              <ServiceIcon icon={service.icon} />
-            </span>
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-[#0B1B33] mb-5 max-w-3xl">
+              Strategic planning and execution in the comprehensive process of formulating goals
+            </h2>
+            <p className="text-lg text-[#0B1B33]/70 leading-relaxed max-w-3xl mb-5">
+              Our service guides you through the entire strategic planning process, from initial goal formulation to precise execution. Start with a thorough assessment of your current position and market landscape, then help you define clear, actionable objectives aligned with your vision. Our approach includes developing detailed action plans, setting key performance indicators (KPIs), and implementing strategies to ensure seamless execution.
+            </p>
+            <p className="text-lg text-[#0B1B33]/70 leading-relaxed max-w-3xl mb-10">
+              Our Strategic Planning and Execution service offers a thorough approach to formulating and implementing business goals. We begin with an in-depth analysis of your business and market to identify opportunities and challenges. From there, we work with you to define clear, actionable objectives and develop a detailed.
+            </p>
           </ServiceDetailReveal>
 
           <ServiceDetailReveal delay={150}>
-            <p className="text-lg text-[#0B1B33]/70 leading-relaxed max-w-3xl mb-10">{service.longCopy}</p>
+            <span className="inline-flex w-16 h-16 rounded-full bg-[#EEF2FA] items-center justify-center mb-10 text-[#2563EB]">
+              <ServiceIcon icon={service.icon} />
+            </span>
           </ServiceDetailReveal>
 
           <ServiceDetailReveal delay={200}>
@@ -106,7 +110,10 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                   "Data-driven decision-making at every step",
                   "A structured approach to achieving your business goals",
                 ].map((point) => (
-                  <li key={point} className="flex items-start gap-3 text-sm text-[#0B1B33]/70">
+                  <li
+                    key={point}
+                    className="flex items-start gap-3 text-sm text-[#0B1B33]/70 border border-gray-300 bg-white p-4"
+                  >
                     <span className="w-5 h-5 rounded-full bg-[#2563EB] flex items-center justify-center shrink-0 mt-0.5">
                       <svg viewBox="0 0 24 24" fill="none" className="w-3 h-3 text-white" stroke="currentColor" strokeWidth={3}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -118,10 +125,10 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
               </ul>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
-              <div className="relative h-[220px] md:h-[260px] rounded-2xl overflow-hidden">
+              <div className="relative h-[220px] md:h-[260px] overflow-hidden">
                 <img src="/tj-service-3.webp" alt="" className="w-full h-full object-cover" />
               </div>
-              <div className="relative h-[220px] md:h-[260px] rounded-2xl overflow-hidden">
+              <div className="relative h-[220px] md:h-[260px] overflow-hidden">
                 <img src="/tj-service-4.webp" alt="" className="w-full h-full object-cover" />
               </div>
             </div>
@@ -129,16 +136,22 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
           {/* Key features */}
           <ServiceDetailReveal delay={300}>
-            <h2 className="font-display text-2xl font-bold text-[#0B1B33] mt-16 mb-8">Key features</h2>
+            <h2 className="font-display text-2xl font-bold text-[#0B1B33] mt-16 mb-6">Key features</h2>
+            <p className="text-[#0B1B33]/70 leading-relaxed max-w-3xl mb-3">
+              Our service guides you through the entire strategic planning process, from initial goal formulation to precise execution. Start with a thorough assessment of your current position and market landscape, then help you define clear, actionable objectives aligned with your vision. Our approach includes developing detailed action plans.
+            </p>
+            <p className="text-[#0B1B33]/70 leading-relaxed max-w-3xl mb-8">
+              Formulating and implementing business goals. We begin with an in-depth analysis of your business and market to identify opportunities and challenges. From there, we work with you to define clear, actionable.
+            </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
                 { title: "Quick solutions", copy: "Hands-on guidance and support throughout the execution.", path: "M13 10V3L4 14h7v7l9-11h-7z" },
                 { title: "Proven results", copy: "Backed by the expertise of seasoned consultants who deliver.", path: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" },
                 { title: "Personalization", copy: "Strategies tailored so objectives are effectively implemented.", path: "M12 4.5C7 4.5 2.7 7.9 1 12c1.7 4.1 6 7.5 11 7.5s9.3-3.4 11-7.5c-1.7-4.1-6-7.5-11-7.5zM12 15a3 3 0 100-6 3 3 0 000 6z" },
               ].map((f) => (
-                <div key={f.title} className="border border-[#0B1B33]/10 rounded-2xl p-7">
-                  <span className="inline-flex w-12 h-12 rounded-full bg-[#EEF2FA] items-center justify-center mb-5 text-[#2563EB]">
-                    <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5" stroke="currentColor" strokeWidth={1.8}>
+                <div key={f.title} className="border border-[#0B1B33]/10 rounded-2xl p-7 bg-[#F7F9FC]">
+                  <span className="inline-flex w-16 h-16 rounded-full bg-white items-center justify-center mb-5 text-[#2563EB]">
+                    <svg viewBox="0 0 24 24" fill="none" className="w-7 h-7" stroke="currentColor" strokeWidth={1.8}>
                       <path strokeLinecap="round" strokeLinejoin="round" d={f.path} />
                     </svg>
                   </span>
@@ -151,7 +164,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
           {/* Video / CTA banner */}
           <ServiceDetailReveal delay={320}>
-            <div className="relative h-[280px] md:h-[380px] rounded-2xl overflow-hidden mt-16">
+            <div className="relative h-[280px] md:h-[380px] overflow-hidden mt-16">
               <img src="/tj-service-2.webp" alt="" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-[#0B1B33]/40" />
               <a
@@ -187,20 +200,36 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
               <Link
                 key={s.slug}
                 href={`/services/${s.slug}`}
-                className="group bg-white border border-[#0B1B33]/10 rounded-2xl p-7 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                className="group border border-gray-300 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col"
               >
-                <span className="inline-flex w-12 h-12 rounded-full bg-[#EEF2FA] items-center justify-center mb-4 text-[#2563EB]">
-                  <ServiceIcon icon={s.icon} className="w-5 h-5" />
-                </span>
-                <h3 className="font-display text-lg font-bold text-[#0B1B33] mb-2">{s.title}</h3>
-                <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#2563EB]">
-                  Learn more
-                  <svg viewBox="0 0 24 24" fill="none" className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" stroke="currentColor" strokeWidth={2.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </span>
+                <div className="bg-white p-7 pb-4">
+                  <span className="inline-flex w-12 h-12 rounded-full bg-[#EEF2FA] items-center justify-center text-[#2563EB]">
+                    <ServiceIcon icon={s.icon} className="w-5 h-5" />
+                  </span>
+                </div>
+                <div className="bg-[#F7F9FC] p-7 pt-5 flex flex-col gap-4">
+                  <h3 className="font-display text-lg font-bold text-[#0B1B33]">{s.title}</h3>
+                  <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#2563EB]">
+                    Learn more
+                    <svg viewBox="0 0 24 24" fill="none" className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" stroke="currentColor" strokeWidth={2.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </span>
+                </div>
               </Link>
             ))}
+          </div>
+
+          {/* Need help CTA box */}
+          <div className="mt-6 border border-gray-300 bg-white p-6 md:p-8">
+            <div className="relative h-[180px] md:h-[220px] overflow-hidden flex items-end p-6">
+              <img src="/tj-service-1.webp" alt="" className="absolute inset-0 w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-[#0B1B33]/50" />
+              <div className="relative text-white">
+                <p className="font-display text-xl md:text-2xl font-bold">Need help?</p>
+                <p className="text-sm md:text-base text-white/80 mt-1">Feel free contact us</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

@@ -45,8 +45,8 @@ export function FaqAccordion() {
             >
               <span className="font-display text-lg font-bold text-[#0B1B33]">{item.q}</span>
               <span
-                className={`w-8 h-8 rounded-full border border-[#0B1B33]/15 flex items-center justify-center shrink-0 text-xl font-bold transition-colors duration-300 ${
-                  isOpen ? "bg-[#2563EB] border-[#2563EB] text-white" : "text-[#0B1B33]"
+                className={`w-8 h-8 rounded-full border flex items-center justify-center shrink-0 text-xl font-bold transition-colors duration-300 ${
+                  isOpen ? "bg-[#2563EB] border-[#2563EB] text-white" : "bg-white border-gray-300 text-[#0B1B33]"
                 }`}
               >
                 {isOpen ? "−" : "+"}

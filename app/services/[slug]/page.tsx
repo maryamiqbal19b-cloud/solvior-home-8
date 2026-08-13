@@ -173,7 +173,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
       {/* Related services */}
       <section className="px-6 md:px-10 pb-20 bg-[#F7F9FC] pt-20">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="flex flex-col gap-6">
             {/* Related service list */}
             <div className="border border-gray-300 bg-white p-6 md:p-8">
               <h2 className="font-display text-xl font-bold text-[#0B1B33] mb-6">Related service</h2>

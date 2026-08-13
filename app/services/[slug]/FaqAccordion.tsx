@@ -29,11 +29,14 @@ export function FaqAccordion() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <div className="flex flex-col divide-y divide-[#0B1B33]/10 border-t border-b border-[#0B1B33]/10">
+    <div className="flex flex-col gap-4">
       {FAQS.map((item, i) => {
         const isOpen = open === i;
         return (
-          <div key={item.q}>
+          <div
+            key={item.q}
+            className={`border border-gray-300 px-6 transition-colors duration-300 ${isOpen ? "bg-[#F7F9FC]" : "bg-white"}`}
+          >
             <button
               type="button"
               onClick={() => setOpen(isOpen ? null : i)}
@@ -42,13 +45,11 @@ export function FaqAccordion() {
             >
               <span className="font-display text-lg font-bold text-[#0B1B33]">{item.q}</span>
               <span
-                className={`w-8 h-8 rounded-full border border-[#0B1B33]/15 flex items-center justify-center shrink-0 transition-transform duration-300 ${
-                  isOpen ? "rotate-45 bg-[#2563EB] border-[#2563EB]" : ""
+                className={`w-8 h-8 rounded-full border border-[#0B1B33]/15 flex items-center justify-center shrink-0 text-xl font-bold transition-colors duration-300 ${
+                  isOpen ? "bg-[#2563EB] border-[#2563EB] text-white" : "text-[#0B1B33]"
                 }`}
               >
-                <svg viewBox="0 0 24 24" fill="none" className={`w-4 h-4 ${isOpen ? "text-white" : "text-[#0B1B33]"}`} stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 5v14M5 12h14" />
-                </svg>
+                {isOpen ? "−" : "+"}
               </span>
             </button>
             <div className={`overflow-hidden transition-[max-height] duration-300 ease-in-out ${isOpen ? "max-h-40" : "max-h-0"}`}>

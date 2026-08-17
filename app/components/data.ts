@@ -10,7 +10,7 @@ export const NAV_LINKS = [
 
 // Mobile menu uses a grouped structure: some items are direct links,
 // "Pages" is expandable (arrow toggles a sub-list) like the demo.
- export const MOBILE_NAV = [
+export const MOBILE_NAV = [
   { label: "Home", href: "/" },
   {
     label: "Pages",
@@ -95,6 +95,8 @@ export const PROJECTS = [
   { title: "Strat Edge Solutions", tags: ["Strategy", "Growth"], img: "/h8-project-2.webp" },
   { title: "Prime Strategy Partners", tags: ["Strategy", "Growth"], img: "/h8-project-3.webp" },
   { title: "Elevate Enterprise", tags: ["Strategy", "Growth"], img: "/h8-project-4.webp" },
+  { title: "Empower Enterprise", tags: ["Strategy", "Growth"], img: "/h8-project-5.webp" },
+  { title: "Innovative Solutions", tags: ["Strategy", "Growth"], img: "/h8-project-6.webp" },
 ];
 
 export const TEAM = [

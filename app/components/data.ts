@@ -10,7 +10,7 @@ export const NAV_LINKS = [
 
 // Mobile menu uses a grouped structure: some items are direct links,
 // "Pages" is expandable (arrow toggles a sub-list) like the demo.
-export const MOBILE_NAV = [
+ export const MOBILE_NAV = [
   { label: "Home", href: "/" },
   {
     label: "Pages",
@@ -22,6 +22,7 @@ export const MOBILE_NAV = [
     ],
   },
   { label: "Services", href: "/services" },
+  { label: "Portfolios", href: "/portfolios" },
   { label: "Contact", href: "/contact" },
 ];
 

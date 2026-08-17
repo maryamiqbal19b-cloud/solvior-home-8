@@ -13,7 +13,7 @@ export function PortfolioGrid() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.5, delay: i * 0.06, ease: "easeOut" }}
-          className="group relative overflow-hidden rounded-2xl bg-[#0B1B33]"
+          className="group relative overflow-hidden rounded-none bg-[#0B1B33]"
         >
           <img
             src={p.img}
@@ -29,7 +29,7 @@ export function PortfolioGrid() {
               {p.tags.map((t) => (
                 <span
                   key={t}
-                  className="text-[10px] uppercase tracking-wider bg-[#2563EB] text-white font-semibold px-3 py-1.5 rounded-full"
+                  className="text-[10px] uppercase tracking-wider bg-black/40 backdrop-blur-md border border-white/10 text-white font-semibold px-3 py-1.5 rounded-full"
                 >
                   {t}
                 </span>

@@ -95,8 +95,8 @@ export const PROJECTS = [
   { title: "Strat Edge Solutions", tags: ["Strategy", "Growth"], img: "/h8-project-2.webp" },
   { title: "Prime Strategy Partners", tags: ["Strategy", "Growth"], img: "/h8-project-3.webp" },
   { title: "Elevate Enterprise", tags: ["Strategy", "Growth"], img: "/h8-project-4.webp" },
-  { title: "Empower Enterprise", tags: ["Strategy", "Growth"], img: "/h8-project-5.webp" },
-  { title: "Innovative Solutions", tags: ["Strategy", "Growth"], img: "/h8-project-6.webp" },
+  { title: "Empower Enterprise", tags: ["Strategy", "Growth"], img: "/h1-project-2.webp" },
+  { title: "Innovative Solutions", tags: ["Strategy", "Growth"], img: "/h1-project-4.webp" },
 ];
 
 export const TEAM = [

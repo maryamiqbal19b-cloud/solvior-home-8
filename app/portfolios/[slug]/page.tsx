@@ -29,6 +29,13 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
   const next = PROJECTS[(index + 1) % PROJECTS.length];
   const related = PROJECTS.filter((p) => p.slug !== project.slug).slice(0, 5);
 
+  const overviewPoints = [
+    "Develop and propose state-of-the-art solutions, including technology upgrades, process reengineering, and automation strategies, tailored to your business needs.",
+    "Oversee the deployment and integration of new systems and technologies, ensuring minimal disruption to your ongoing operations and seamless adaptation.",
+    "Provide comprehensive training for your team to ensure effective use of new systems and ongoing support to address any issues or challenges.",
+    "Establish metrics and benchmarks to monitor the impact of the new solutions.",
+  ];
+
   return (
     <>
       {/* Hero banner with breadcrumb */}
@@ -58,7 +65,7 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
         <div className="max-w-5xl mx-auto">
           <PortfolioDetailReveal>
             <div className="relative h-[320px] md:h-[420px] overflow-hidden mb-12 bg-[#0B1B33]">
-              <img src={project.img} alt={project.title} className="w-full h-full object-contain" />
+              <img src="/portfolio-detail-1.png" alt={project.title} className="w-full h-full object-cover" />
             </div>
           </PortfolioDetailReveal>
 
@@ -67,7 +74,7 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
               {project.tags.map((t) => (
                 <span
                   key={t}
-                  className="text-[10px] uppercase tracking-wider bg-[#F7F9FC] border border-[#0B1B33]/10 text-[#0B1B33] font-semibold px-3 py-1.5 rounded-full"
+                  className="text-[10px] uppercase tracking-wider bg-[#F7F9FC] border border-[#0B1B33]/10 text-[#0B1B33] font-semibold px-3 py-1.5 rounded-full transition-all duration-300 hover:bg-[#2563EB] hover:text-white hover:border-[#2563EB] hover:-translate-y-0.5"
                 >
                   {t}
                 </span>
@@ -77,33 +84,25 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
               {project.summary}
             </h2>
             <p className="text-lg text-[#0B1B33]/70 leading-relaxed max-w-3xl mb-5">
-              Our mission is to empower businesses of every size to thrive in an ever-changing marketplace. We are committed to delivering exceptional value through strategic insight and hands-on execution, working alongside your team from diagnosis through delivery.
+              Our mission is to empowers businesses size to thrive in an businesses ever changing marketplace. We are committed to the delivering exceptionals the value through strategic inset, innovative approaches. Our consulting of our missing empower businesses of all sizes to thrive. Committed to the delivering exceptional in the values through our strategic inset, i approaches empower. Our mission is to empowers businesses.
             </p>
             <p className="text-lg text-[#0B1B33]/70 leading-relaxed max-w-3xl mb-10">
-              We began with an in-depth analysis of the business and market to identify opportunities and challenges, then worked with the client to define clear, actionable objectives and a detailed plan to reach them.
+              Our mission is to empowers businesses size to thrive in an businesses ever changing marketplace. We are committed to the delivering exceptionals the value through strategic inset.
             </p>
           </PortfolioDetailReveal>
 
           {/* Projects overview */}
           <PortfolioDetailReveal delay={250}>
-            <div className="mt-4 bg-white p-8 md:p-10 border border-gray-200">
+            <div className="mt-4">
               <h2 className="font-display text-2xl font-bold text-[#0B1B33] mb-4">Projects overview</h2>
               <p className="text-[#0B1B33]/60 leading-relaxed max-w-3xl mb-8">
-                We developed and proposed state-of-the-art solutions, including technology upgrades, process reengineering, and automation strategies tailored to the client&rsquo;s needs, then oversaw deployment with minimal disruption to ongoing operations.
+                Develop and propose state-of-the-art solutions, including technology upgrades, process reengineering, and automation strategies, tailored to your business needs. Oversee the deployment and integration of new systems and technologies, ensuring minimal disruption to your ongoing operations and seamless adaptation. Provide comprehensive training for your team to ensure effective use of new systems and ongoing support to address any issues or challenges. Establish metrics and benchmarks to monitor the impact of the new solutions.
               </p>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-gray-300 border border-gray-300">
-                {[
-                  "Streamline operations to reduce waste and enhance productivity",
-                  "Lower operational costs through automation and optimized processes",
-                  "Improve overall business performance with advanced solutions",
-                  "Benefit from professional insight throughout the transformation",
-                ].map((point) => (
-                  <li
-                    key={point}
-                    className="flex items-center gap-3 text-sm text-[#0B1B33]/70 bg-white p-4"
-                  >
-                    <span className="flex items-center shrink-0 text-[#2563EB]">
-                      <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4" stroke="currentColor" strokeWidth={3}>
+              <ul className="flex flex-col gap-4 mb-10">
+                {overviewPoints.map((point) => (
+                  <li key={point} className="flex items-start gap-3 text-[#0B1B33]/70">
+                    <span className="flex items-center justify-center shrink-0 w-5 h-5 rounded-full bg-[#2563EB] text-white mt-0.5">
+                      <svg viewBox="0 0 24 24" fill="none" className="w-3 h-3" stroke="currentColor" strokeWidth={3}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M4 13l3 3L14 9" />
                       </svg>
                     </span>
@@ -111,17 +110,26 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
                   </li>
                 ))}
               </ul>
+
+              {/* Video-style image */}
+              <div className="relative h-[280px] md:h-[380px] overflow-hidden mb-4">
+                <img src="/portfolio-detail-2.png" alt="" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center transition-transform duration-300 hover:scale-110 cursor-pointer">
+                    <svg viewBox="0 0 24 24" fill="#0B1B33" className="w-6 h-6 ml-1">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
             </div>
           </PortfolioDetailReveal>
 
           {/* Final result */}
           <PortfolioDetailReveal delay={300}>
             <h2 className="font-display text-2xl font-bold text-[#0B1B33] mt-16 mb-6">Final result</h2>
-            <p className="text-[#0B1B33]/70 leading-relaxed max-w-3xl mb-3">
-              Our mission is to empower businesses of every size to thrive in an ever-changing marketplace. We are committed to delivering exceptional value through strategic insight and innovative, hands-on approaches.
-            </p>
             <p className="text-[#0B1B33]/70 leading-relaxed max-w-3xl mb-8">
-              The engagement closed with a measurable lift in performance, a clear operating playbook, and a leadership team equipped to keep the momentum going on their own.
+              Our mission is to empowers businesses size to thrive in an businesses ever changing marketplace. We are committed to the delivering exceptionals the value through strategic inset, innovative approaches. Our consulting of our missing empower businesses of all sizes to thrive. Committed to the delivering exceptional.
             </p>
           </PortfolioDetailReveal>
 
@@ -161,7 +169,7 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
         </div>
       </section>
 
-      {/* Portfolio info + related */}
+      {/* Portfolio info + related + need help */}
       <section className="px-6 md:px-10 pb-20 bg-[#F7F9FC] pt-20">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Portfolio Information */}
@@ -170,8 +178,9 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
             <dl className="flex flex-col divide-y divide-gray-200">
               {[
                 ["Client", project.client],
-                ["Category", project.category],
+                ["Portfolio", "Financial"],
                 ["Service", project.service],
+                ["Category", project.category],
                 ["Date", project.date],
               ].map(([label, value]) => (
                 <div key={label} className="flex items-center justify-between py-3 text-sm">
@@ -179,6 +188,20 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
                   <dd className="text-[#0B1B33] font-medium">{value}</dd>
                 </div>
               ))}
+              <div className="flex items-center justify-between py-3 text-sm">
+                <dt className="text-[#0B1B33]/50">Share</dt>
+                <dd className="flex items-center gap-3">
+                  {[
+                    "M18 8a3 3 0 10-2.83-4H15a3 3 0 000 6h.17c.11.32.17.66.17 1s-.06.68-.17 1H15a3 3 0 102.83 4H18a3 3 0 00-2.83-4 3 3 0 002.83-4z",
+                  ].map((d) => (
+                    <span key={d} className="w-8 h-8 rounded-full border border-[#0B1B33]/15 flex items-center justify-center text-[#0B1B33] hover:bg-[#2563EB] hover:text-white hover:border-[#2563EB] transition-colors cursor-pointer">
+                      <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+                        <path d={d} />
+                      </svg>
+                    </span>
+                  ))}
+                </dd>
+              </div>
             </dl>
           </div>
 
@@ -203,9 +226,20 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
 
           {/* Need help CTA box */}
           <div className="border border-gray-300 bg-white p-6 md:p-8">
-            <div className="relative h-full min-h-[280px] overflow-hidden flex items-end p-7">
-              <img src={project.img} alt="" className="absolute inset-0 w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-[#0B1B33]/55" />
+            <div className="relative h-full min-h-[280px] overflow-hidden flex items-end p-7 bg-[#0B1B33]">
+              <img src={project.img} alt="" className="absolute inset-0 w-full h-full object-cover opacity-40" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B1B33] via-[#0B1B33]/70 to-[#0B1B33]/30" />
+              {/* Decorative swirl arrow */}
+              <svg
+                viewBox="0 0 80 90"
+                fill="none"
+                className="absolute right-10 bottom-24 w-16 h-20 text-white/70"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path d="M40 5c20 5 30 20 22 35S30 60 35 45s25-10 30 5" strokeLinecap="round" />
+                <path d="M55 45l10 5-3 11" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
               <div className="relative text-white flex flex-col gap-4">
                 <div>
                   <p className="font-display text-xl md:text-2xl font-bold">Need help?</p>

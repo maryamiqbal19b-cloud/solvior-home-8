@@ -113,7 +113,7 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
 
               {/* Video-style image */}
               <div className="relative h-[280px] md:h-[380px] overflow-hidden mb-4">
-                <img src="/portfolio-detail-2.png" alt="" className="w-full h-full object-cover" />
+               <img src="/h1-service-1.webp" alt="" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <span className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center transition-transform duration-300 hover:scale-110 cursor-pointer">
                     <svg viewBox="0 0 24 24" fill="#0B1B33" className="w-6 h-6 ml-1">

@@ -3,6 +3,7 @@ export const NAV_LINKS = [
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Portfolios", href: "/portfolios" },
+  { label: "Blog", href: "/blog-grid" },
   { label: "Pricing", href: "/pricing" },
   { label: "Team", href: "/#team" },
   { label: "Contact", href: "/contact" },
@@ -23,6 +24,7 @@ export const MOBILE_NAV = [
   },
   { label: "Services", href: "/services" },
   { label: "Portfolios", href: "/portfolios" },
+  { label: "Blog", href: "/blog-grid" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -173,9 +175,12 @@ export const TESTIMONIALS = [
 ];
 
 export const NEWS = [
-  { cat: "Branding", date: "Jul 28, 2026", title: "Innovative solutions for business success", img: "https://images.unsplash.com/photo-1745015446589-7ee6f702d8c1?w=700&q=80" },
-  { cat: "Business", date: "Nov 06, 2025", title: "What consultants should know about nonprofits", img: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=700&q=80" },
-  { cat: "Consulting", date: "Aug 24, 2025", title: "Why every entrepreneur needs a real digital strategy", img: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&q=80" },
+  { slug: "innovative-solutions-for-business-success", cat: "Branding", day: "28", month: "JUL", date: "Jul 28, 2026", title: "Innovative solutions for business success", excerpt: "In today's dynamic business environment, the key to success lies in strategic planning.", img: "/blog-thumb-1.webp" },
+  { slug: "what-consultants-should-know-about-nonprofits", cat: "Business", day: "06", month: "NOV", date: "Nov 06, 2025", title: "What consultants should know about nonprofits", excerpt: "In today's dynamic business environment, the key to success lies in strategic planning.", img: "/h2-blog-2.webp" },
+  { slug: "why-every-entrepreneur-needs-digital-strategy", cat: "Consulting", day: "24", month: "AUG", date: "Aug 24, 2025", title: "Why every entrepreneur needs a real digital strategy", excerpt: "In today's dynamic business environment, the key to success lies in strategic planning.", img: "/h2-blog-3.webp" },
+  { slug: "mastering-change-management-key-lessons", cat: "Innovations", day: "28", month: "AUG", date: "Aug 28, 2025", title: "Mastering change management: key lessons for businesses", excerpt: "In today's dynamic business environment, the key to success lies in strategic planning.", img: "/blog-thumb-1.webp" },
+  { slug: "harness-digital-transformation-roadmap", cat: "Managements", day: "28", month: "AUG", date: "Aug 28, 2025", title: "Harness digital transformation: a roadmap for businesses", excerpt: "In today's dynamic business environment, the key to success lies in strategic planning.", img: "/h2-blog-2.webp" },
+  { slug: "measuring-success-key-metrics", cat: "Marketing", day: "28", month: "AUG", date: "Aug 28, 2025", title: "Measuring success: key metrics every business should track", excerpt: "In today's dynamic business environment, the key to success lies in strategic planning.", img: "/h2-blog-3.webp" },
 ];
 
 export const KEYWORDS = ["Expertise", "Consulting", "Business", "Growth"];
